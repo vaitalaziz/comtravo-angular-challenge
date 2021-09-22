@@ -12,3 +12,11 @@
     </tr>
   </tbody>
 </table>
+
+<br>
+
+<div>
+  <div *ngIf="existsEmail.length > 0" class="error">Already email exists: {{ existsEmail }} </div>
+  <div *ngIf="internalError.length > 0" class="error">Internal error: {{ internalError }} </div>
+  <div *ngIf="successfulInvitation > 0" class="success">_{{successfulInvitation}} users successfully invited_</div>
+</div>
