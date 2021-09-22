@@ -13,13 +13,17 @@ export interface User {
 export class InviteService {
   private readonly url = 'http://localhost:3000/users';
 
-  constructor(private http: HttpClient) {}
+  public internalError: string[] = [];
+  public existsEmail: string[] = []
+  public successfulInvitation = 0;
+
+  constructor(private http: HttpClient) { }
 
   get(): Observable<User[]> {
     return this.http.get<User[]>(this.url);
   }
 
-  invite(user: User) {
-    this.http.post<User>(this.url, user);
+  invite(user: User): Observable<User> {
+    return this.http.post<User>(this.url, user);
   }
 }

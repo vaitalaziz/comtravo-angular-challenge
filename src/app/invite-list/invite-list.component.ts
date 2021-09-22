@@ -9,9 +9,15 @@ import { InviteService, User } from '../service/invite.service';
 })
 export class InviteListComponent implements OnInit {
   users$: Observable<User[]>;
+  existsEmail: string[] = [];
+  internalError: string [] = [];
+  successfulInvitation: number = 0;
 
   constructor(private inviteService: InviteService) {
     this.users$ = this.inviteService.get();
+    this.existsEmail = this.inviteService.existsEmail;
+    this.internalError = this.inviteService.internalError;
+    this.successfulInvitation = this.inviteService.successfulInvitation;
   }
 
   ngOnInit(): void {}
