@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InviteListComponent } from './invite-list/invite-list.component';
 import { InviteComponent } from './invite/invite.component';
+import { LoadingIndicatorModule } from './shared/components/loading-indicator.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { InviteComponent } from './invite/invite.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    LoadingIndicatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

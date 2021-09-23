@@ -1,22 +1,27 @@
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of (users$ | async)">
-      <td>{{ user.id }}</td>
-      <td>{{ user.email }}</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="(users$ | async) as users; else loading">
+  <table >
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users ">
+        <td>{{ user.id }}</td>
+        <td>{{ user.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
 
-<br>
-
-<div>
-  <div *ngIf="existsEmail.length > 0" class="error">Already email exists: {{ existsEmail }} </div>
-  <div *ngIf="internalError.length > 0" class="error">Internal error: {{ internalError }} </div>
-  <div *ngIf="successfulInvitation > 0" class="success">_{{successfulInvitation}} users successfully invited_</div>
+  <div>
+    <div *ngIf="existsEmail.length > 0" class="error">Already email exists: {{ existsEmail }} </div>
+    <div *ngIf="internalError.length > 0" class="error">Internal error: {{ internalError }} </div>
+    <div *ngIf="successfulInvitation > 0" class="success">_{{successfulInvitation}} users successfully invited_</div>
+  </div>
 </div>
+
+<ng-template #loading>
+  <app-loading-indicator></app-loading-indicator>
+</ng-template>

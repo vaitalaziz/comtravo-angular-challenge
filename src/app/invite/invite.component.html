@@ -1,1 +1,4 @@
-  <button class="button" (click)="onSubmit()">Invite</button>
+<button class="button" (click)="onSubmit()">Invite</button>
+<div *ngIf="isProcessing$ | async">
+  <app-loading-indicator></app-loading-indicator>
+</div>
