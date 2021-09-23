@@ -11,7 +11,6 @@ import { LoadingIndicatorComponent } from './loading-indicator.component';
     CommonModule,
   ],
   exports: [LoadingIndicatorComponent],
-//   providers: [],
   entryComponents: [LoadingIndicatorComponent],
 })
 export class LoadingIndicatorModule { }
